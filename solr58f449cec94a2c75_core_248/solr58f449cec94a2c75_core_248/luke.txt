@@ -1,0 +1,23 @@
+<lst name="responseHeader">
+<int name="status">0</int>
+<int name="QTime">167</int>
+</lst>
+<lst name="index">
+<int name="numDocs">579245511</int>
+<int name="maxDoc">579245511</int>
+<int name="deletedDocs">0</int>
+<long name="indexHeapUsageBytes">-1</long>
+<long name="version">150205</long>
+<int name="segmentCount">135</int>
+<bool name="current">false</bool>
+<bool name="hasDeletions">false</bool>
+<str name="directory">
+org.apache.lucene.store.NRTCachingDirectory:NRTCachingDirectory(MMapDirectory@/opt/solr/volumes/data5/58f449cec94a2c75-core-248/data/index lockFactory=org.apache.lucene.store.NoLockFactory@fd1e6e8; maxCacheMB=48.0 maxMergeSizeMB=4.0)
+</str>
+<str name="segmentsFile">segments_3xk</str>
+<long name="segmentsFileSizeInBytes">-1</long>
+<lst name="userData">
+<str name="commitTimeMSec">1518229508231</str>
+</lst>
+<date name="lastModified">2018-02-10T02:25:08.231Z</date>
+</lst>
