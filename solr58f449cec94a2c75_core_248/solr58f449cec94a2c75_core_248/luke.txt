@@ -1,6 +1,7 @@
+<response>
 <lst name="responseHeader">
 <int name="status">0</int>
-<int name="QTime">167</int>
+<int name="QTime">37</int>
 </lst>
 <lst name="index">
 <int name="numDocs">579245511</int>
