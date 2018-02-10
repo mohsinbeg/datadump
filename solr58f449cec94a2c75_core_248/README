@@ -1,8 +1,0 @@
-Ran /solr/<core>admin/luke at 6:06pm PST
-
-It showed "lastModified: 2018-02-10T01:57:25.931Z" indicating commit blocked for about ~9 mins.
-Hard commit is set as 10secs in solrconfig.xml
-
-Thread dump and top output are from that condition.
-
-Commit cleared up at 6:07pm though.
