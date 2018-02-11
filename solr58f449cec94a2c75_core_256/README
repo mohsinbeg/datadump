@@ -8,7 +8,8 @@ Hard commit is set as 10secs in solrconfig.xml
 
 Other cores are also blocked.
 
-Thread dump and top output are from that condition.
+Thread dump and top output are from that condition are at
+https://github.com/mohsinbeg/datadump/tree/master/solr58f449cec94a2c75_core_256
 
 netstat shows lots of CLOSE_WAIT
 solr [ /tmp ]$ sudo netstat -ptan | awk '{print $6 " " $7 }' | sort | uniq -c; TZ=PST8PDT date;
@@ -32,5 +33,7 @@ at org.apache.solr.update.DirectUpdateHandler2.allowDuplicateUpdate(DirectUpdate
 ...
 at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55)
 ...
+
+
 Only `top` available on Photon OS is https://github.com/vmware/photon/blob/1.0/SPECS/procps-ng/procps-ng.spec
 Those screenshots are attached.
