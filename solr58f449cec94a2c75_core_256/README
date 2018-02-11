@@ -1,0 +1,36 @@
+All custom AbstractSolrEventListener listeners were disabled to not process any post commit events.
+Those threads are in WAITING state, which is ok.
+
+Ran /solr/58f449cec94a2c75-core-256/admin/luke at 10:30pm PST
+
+It showed "lastModified: 2018-02-11T04:46:54.540Z" indicating commit blocked for about 2 hours.
+Hard commit is set as 10secs in solrconfig.xml
+
+Other cores are also blocked.
+
+Thread dump and top output are from that condition.
+
+netstat shows lots of CLOSE_WAIT
+solr [ /tmp ]$ sudo netstat -ptan | awk '{print $6 " " $7 }' | sort | uniq -c; TZ=PST8PDT date;
+   7728 CLOSE_WAIT -
+     65 ESTABLISHED -
+      1 FIN_WAIT2 -
+      1 Foreign Address
+      6 LISTEN -
+     36 TIME_WAIT -
+      1 established)
+Sat Feb 10 22:27:07 PST 2018
+
+http://fastthread.io shows lots 6,700 threads in TIMED_WAIT
+
+https://jstack.review shows 6584 threads with this stack
+at java.lang.Object.wait(Native Method)
+at org.apache.lucene.index.ConcurrentMergeScheduler.doStall(ConcurrentMergeScheduler.java:616)
+at org.apache.lucene.index.ConcurrentMergeScheduler.maybeStall(ConcurrentMergeScheduler.java:602)
+...
+at org.apache.solr.update.DirectUpdateHandler2.allowDuplicateUpdate(DirectUpdateHandler2.java:276)
+...
+at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:55)
+...
+Only `top` available on Photon OS is https://github.com/vmware/photon/blob/1.0/SPECS/procps-ng/procps-ng.spec
+Those screenshots are attached.
